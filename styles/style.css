@@ -1,4 +1,5 @@
-* { box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
 
 .background  {
@@ -17,13 +18,30 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
 header {
   height: 50px;
   font-size: 36px;
   margin: 10px;
+}
+
+div.grid {
+  width: 800px;
+  height: 800px;
+  display: flex;
+  flex-wrap: wrap;
+  background-image: url('../images/background.png')
+}
+
+div.square {
+  height: 80px;
+  width: 80px;
+  border: solid 1px black;
+}
+
+div.ship {
+  background-color: red;
 }
 
 #ship-image {
