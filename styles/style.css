@@ -9,7 +9,7 @@
 #background-image {
   width: 800px;
   height: 800px;
-  /* z-index: 0; */
+  z-index: 0;
   position: absolute;
 }
 
@@ -41,4 +41,10 @@ header {
   margin-top: 50px;
   margin-left: 400px;
   position: absolute;
+}
+
+#missile-image {
+  position: absolute;
+  margin-top: 690px;
+  margin-left: 417px;
 }
