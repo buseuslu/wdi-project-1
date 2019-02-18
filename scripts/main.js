@@ -27,7 +27,7 @@ window.addEventListener('DOMContentLoaded', () => {
   squareElement[6].classList.add('alien')
   squareElement[7].classList.add('alien')
   squareElement[8].classList.add('alien')
-  // squareElement[85].classList.add('missile')
+
   squareElement[ship.position].classList.add('ship')
 
 
@@ -69,11 +69,32 @@ window.addEventListener('DOMContentLoaded', () => {
       squareElement[alien.position[x]].classList.remove('alien')
       alien.position[x] = alien.position[x] + 10
       squareElement[alien.position[x]].classList.add('alien')
-
     }
   }
 
+  //fire missile
+  function fireMissile(e) {
+    const missilePosition = ship.position - 10
+    console.log(missilePosition)
+    switch(e.keyCode) {
+      case 32:
+        squareElement[missilePosition].classList.add('missile')
+        break
+    }
+  }
+  // move missiles
+  function moveMissile() {
+    
+  }
+
+  // const missiles = document.querySelectorAll('.missile')
+  // squareElement[missile.position[x]].classList.remove('missile')
+  // missile.position[x] = missile.position[x] - 10
+  // squareElement[misile.position[x]].classList.add('missile')
+
   window.addEventListener('keydown', moveShip)
+  window.addEventListener('keydown', fireMissile)
   window.setInterval(moveAliens, 5000)
+  window.setInterval(moveMissile, 5000)
 
 })
