@@ -1,26 +1,9 @@
 window.addEventListener('DOMContentLoaded', () => {
 
-  const ship = document.querySelector('#ship')
   const grid = document.querySelector('.grid')
+  // const ship = document.querySelector('#ship')
 
-  document.onkeydown = function(e) {
-    if (e.keyCode === 37) {
-      // Move Left
-      ship.left = ship.left - 10
-    }
-    if (e.keyCode === 39) {
-      // Move Right
-      ship.left = ship.left + 10
-      console.log('here')
-    }
-    moveShip()
-  }
-
-  function moveShip() {
-    document.querySelector('#ship').style.left = ship.left + 'px'
-    console.log(moveShip)
-  }
-
+  // add grid
   for(let x  = 0; x < 100; x++) {
     const square = document.createElement('div')
     square.setAttribute('class', 'square')
@@ -30,4 +13,34 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     grid.appendChild(square)
   }
+
+  // move ship
+  const ship = {
+    position: 95
+  }
+  const squareElement = document.querySelectorAll('.square')
+  // squareElement[55].classList.add('alien')
+  squareElement[ship.position].classList.add('ship')
+
+  let shipIndex = ship.position
+  function moveShip(e) {
+    squareElement.forEach((square => square.classList.remove('ship')))
+    switch(e.keyCode) {
+      case 37:
+        shipIndex--
+        squareElement[shipIndex].classList.add('ship')
+        break
+      case 39:
+        shipIndex++
+        squareElement[shipIndex].classList.add('ship')
+      // break
+      // case 32:
+      // squareElement[shipIndex].classList.add('laser')
+
+    }
+  }
+
+  window.addEventListener('keydown', moveShip)
+
+
 })
