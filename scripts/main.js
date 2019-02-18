@@ -50,10 +50,12 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+
+  // move aliens
   const alien = {
     position: [1 ,2, 3, 4, 5, 6, 7, 8]
   }
-  // move aliens
+
   function moveAliens() {
     if (gameOver) {
       return
@@ -79,22 +81,27 @@ window.addEventListener('DOMContentLoaded', () => {
     switch(e.keyCode) {
       case 32:
         squareElement[missilePosition].classList.add('missile')
+        missile.position.push(missilePosition)
         break
     }
   }
+
   // move missiles
-  function moveMissile() {
-    
+  const missile = {
+    position: []
   }
 
-  // const missiles = document.querySelectorAll('.missile')
-  // squareElement[missile.position[x]].classList.remove('missile')
-  // missile.position[x] = missile.position[x] - 10
-  // squareElement[misile.position[x]].classList.add('missile')
+  function moveMissile() {
+    for(let x = 0; x < missile.position.length; x++) {
+      squareElement[missile.position[x]].classList.remove('missile')
+      missile.position[x] = missile.position[x] - 10
+      squareElement[missile.position[x]].classList.add('missile')
+    }
 
+  }
   window.addEventListener('keydown', moveShip)
   window.addEventListener('keydown', fireMissile)
   window.setInterval(moveAliens, 5000)
-  window.setInterval(moveMissile, 5000)
+  window.setInterval(moveMissile, 500)
 
 })
