@@ -1,5 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
 
+  let gameOver = false
   const grid = document.querySelector('.grid')
   // const ship = document.querySelector('#ship')
 
@@ -7,10 +8,8 @@ window.addEventListener('DOMContentLoaded', () => {
   for(let x  = 0; x < 100; x++) {
     const square = document.createElement('div')
     square.setAttribute('class', 'square')
-    if (x === 95) {
-      square.classList.add('ship')
-      console.log(square)
-    }
+    square.className = 'square'
+    square.id = x
     grid.appendChild(square)
   }
 
@@ -18,29 +17,63 @@ window.addEventListener('DOMContentLoaded', () => {
   const ship = {
     position: 95
   }
+
   const squareElement = document.querySelectorAll('.square')
-  // squareElement[55].classList.add('alien')
+  squareElement[1].classList.add('alien')
+  squareElement[2].classList.add('alien')
+  squareElement[3].classList.add('alien')
+  squareElement[4].classList.add('alien')
+  squareElement[5].classList.add('alien')
+  squareElement[6].classList.add('alien')
+  squareElement[7].classList.add('alien')
+  squareElement[8].classList.add('alien')
+  // squareElement[85].classList.add('missile')
   squareElement[ship.position].classList.add('ship')
 
-  let shipIndex = ship.position
+
   function moveShip(e) {
-    squareElement.forEach((square => square.classList.remove('ship')))
     switch(e.keyCode) {
       case 37:
-        shipIndex--
-        squareElement[shipIndex].classList.add('ship')
+        squareElement.forEach((square => square.classList.remove('ship')))
+        if (ship.position > 90) {
+          ship.position--
+        }
+        squareElement[ship.position].classList.add('ship')
         break
       case 39:
-        shipIndex++
-        squareElement[shipIndex].classList.add('ship')
-      // break
-      // case 32:
-      // squareElement[shipIndex].classList.add('laser')
+        squareElement.forEach((square => square.classList.remove('ship')))
+        if (ship.position < 99) {
+          ship.position++
+        }
+        squareElement[ship.position].classList.add('ship')
+        break
+    }
+  }
+
+  const alien = {
+    position: [1 ,2, 3, 4, 5, 6, 7, 8]
+  }
+  // move aliens
+  function moveAliens() {
+    if (gameOver) {
+      return
+    }
+    const aliens = document.querySelectorAll('.alien')
+    for(let x = 0; x < aliens.length; x++) {
+      if (alien.position[x] > 79) {
+        gameOver = true
+        alert('game over')
+        return
+      }
+
+      squareElement[alien.position[x]].classList.remove('alien')
+      alien.position[x] = alien.position[x] + 10
+      squareElement[alien.position[x]].classList.add('alien')
 
     }
   }
 
   window.addEventListener('keydown', moveShip)
-
+  window.setInterval(moveAliens, 5000)
 
 })

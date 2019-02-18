@@ -41,7 +41,17 @@ div.square {
 }
 
 div.ship {
-  background-color: red;
+  background-color: green;
+
+}
+
+div.alien {
+  background: red;
+}
+
+div.missile {
+  background: yellow;
+
 }
 
 #ship-image {
