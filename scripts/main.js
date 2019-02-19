@@ -2,6 +2,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
   const grid = document.querySelector('.grid')
+  let score = 0
   // const ship = document.querySelector('#ship')
 
   // add grid
@@ -115,9 +116,11 @@ window.addEventListener('DOMContentLoaded', () => {
         alien.position.splice(x, 1)
         // Remove it from the missile.position so it is not redrawn again by the interval timer
         missile.position.splice(missileElement, 1)
-
         // Remove it from the page
         squareElement[missilePosition].classList.remove('alien', 'missile')
+
+        score = score + 10
+        $('#Score').text('Score: ' + score)
       }
     }
   }
@@ -131,22 +134,12 @@ window.addEventListener('DOMContentLoaded', () => {
   //   }
   // }
 
-
-  // //score
-  // let score = 0
-  // if (removeAlienMissile) {
-  //   score += 10
-  //   document.getElementById('#score').innerHTML = score
-  // }
-
-
   //start screen
   // function myFunction() {
   //   let myWindow = window.open('', 'myWindow', 'width=200,height=100')
   //   myWindow.document.write('<p>This is \'myWindow\'</p>')
   //   myWindow.opener.document.write('<p>This is the source window!</p>')
   // }
-  
 
   //game-over screen
   let gameOver = false
