@@ -96,6 +96,9 @@ window.addEventListener('DOMContentLoaded', () => {
       squareElement[missile.position[x]].classList.remove('missile')
       missile.position[x] = missile.position[x] - 10
       squareElement[missile.position[x]].classList.add('missile')
+      if (missile.position[x] < 1) {
+        squareElement[missile.position[x]].classList.remove('missile')
+      }
     }
 
   }
