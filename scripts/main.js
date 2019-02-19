@@ -106,10 +106,17 @@ window.addEventListener('DOMContentLoaded', () => {
 
   //remove alien & missile
   function removeAlienMissile(missile) {
-    // console.log(missile, alien.position)
-    console.log(alien.position.some(index => index === missile))
+    console.log(missile, alien.position)
+    if(alien.position.some(pos => pos === missile)) {
+      squareElement[missile].classList.remove('alien', 'missile')
+    }
+    // for (let x = 0; x < alien.position; x++) {
+    //   squareElement[missile.position[x]].classList.remove('missile')
+    //   squareElement[alien.position[x]].classList.remove('ali')
+    //   console.log(missile, alien.position)
+    //   console.log(alien.position.some(index => index === missile))
+    // }
   }
-
 
   let gameOver = false
   window.addEventListener('keydown', moveShip)
