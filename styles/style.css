@@ -40,19 +40,16 @@ div.square {
 }
 
 div.ship {
-  /* background-color: green; */
   background-image: url('../images/ship.png');
   background-size: 100%;
 }
 
 div.alien {
-  /* background: red; */
   background-image: url('../images/enemy4.png');
   background-size: 100%;
 }
 
 div.missile {
-  /* background: yellow; */
   background-image: url('../images/missile.png');
      background-size: 30%;
      background-repeat: no-repeat;

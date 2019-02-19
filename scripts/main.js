@@ -92,7 +92,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
   function moveMissile() {
     for(let x = 0; x < missile.position.length; x++) {
-      removeAlienMissile(missile.position[x])
       if (missile.position[x] < 0) {
         missile.position = missile.position.filter(missile => missile > 0)
         // squareElement[missile.position[x]].classList.remove('missile')
@@ -101,18 +100,39 @@ window.addEventListener('DOMContentLoaded', () => {
         missile.position[x] = missile.position[x] - 10
         squareElement[missile.position[x]].classList.add('missile')
       }
+
+      // Check here after we have moved the missiles
+      removeAlienMissile(x)
     }
   }
 
   //remove alien & missile
-  function removeAlienMissile(missile) {
-    console.log(missile, alien.position)
-    if(alien.position.some(pos => pos === missile)) {
-      squareElement[missile].classList.remove('alien', 'missile')
+  function removeAlienMissile(missileElement) {
+    const missilePosition = missile.position[missileElement]
+    for (let x = 0; x < alien.position.length; x++) {
+      if (alien.position[x] === missilePosition) {
+        // Remove is from alien.position so it is not redrawn again by the interval timer
+        alien.position.splice(x, 1)
+        // Remove it from the missile.position so it is not redrawn again by the interval timer
+        missile.position.splice(missileElement, 1)
+
+        // Remove it from the page
+        squareElement[missilePosition].classList.remove('alien', 'missile')
+      }
     }
   }
 
-  //score
+
+  // //remove alien & missile
+  // function removeAlienMissile(missile) {
+  //   console.log(missile, alien.position)
+  //   if(alien.position.some(pos => pos === missile)) {
+  //     squareElement[missile].classList.remove('alien', 'missile')
+  //   }
+  // }
+
+
+  // //score
   // let score = 0
   // if (removeAlienMissile) {
   //   score += 10
@@ -120,7 +140,15 @@ window.addEventListener('DOMContentLoaded', () => {
   // }
 
 
+  //start screen
+  // function myFunction() {
+  //   let myWindow = window.open('', 'myWindow', 'width=200,height=100')
+  //   myWindow.document.write('<p>This is \'myWindow\'</p>')
+  //   myWindow.opener.document.write('<p>This is the source window!</p>')
+  // }
+  
 
+  //game-over screen
   let gameOver = false
   window.addEventListener('keydown', moveShip)
   window.addEventListener('keydown', fireMissile)
