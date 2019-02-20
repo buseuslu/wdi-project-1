@@ -101,6 +101,7 @@ section {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
 }
 
 .start-screen p {
@@ -130,8 +131,18 @@ section {
   background-image: url('..//images/starfield.png')
 }
 
+.image-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
 .left {
+  display: flex;
   text-align: center;
+  flex-direction: column;
+  margin-left: 50px;
+  margin-right: -350px;
 }
 
 .left p {
@@ -143,12 +154,16 @@ section {
   margin: 0 auto;
 }
 
+.game-over span {
+  font-size: 100px;
+  color: yellow;
+}
 .game-over {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
+  text-align: center;
   background: black;
   color: white;
 }

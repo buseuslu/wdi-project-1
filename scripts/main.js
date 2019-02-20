@@ -29,6 +29,22 @@ window.addEventListener('DOMContentLoaded', () => {
   squareElement[6].classList.add('alien')
   squareElement[7].classList.add('alien')
   squareElement[8].classList.add('alien')
+  squareElement[11].classList.add('alien')
+  squareElement[12].classList.add('alien')
+  squareElement[13].classList.add('alien')
+  squareElement[14].classList.add('alien')
+  squareElement[15].classList.add('alien')
+  squareElement[16].classList.add('alien')
+  squareElement[17].classList.add('alien')
+  squareElement[18].classList.add('alien')
+  squareElement[21].classList.add('alien')
+  squareElement[22].classList.add('alien')
+  squareElement[23].classList.add('alien')
+  squareElement[24].classList.add('alien')
+  squareElement[25].classList.add('alien')
+  squareElement[26].classList.add('alien')
+  squareElement[27].classList.add('alien')
+  squareElement[28].classList.add('alien')
 
   squareElement[ship.position].classList.add('ship')
 
@@ -54,7 +70,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // move aliens down
   const alien = {
-    position: [1 ,2, 3, 4, 5, 6, 7, 8]
+    position: [1 ,2, 3, 4, 5, 6, 7, 8, 11, 12, 13, 14, 15, 16, 17, 18, 21, 22, 23, 24, 25, 26, 27, 28]
   }
 
   function moveAliens() {
@@ -74,37 +90,37 @@ window.addEventListener('DOMContentLoaded', () => {
       squareElement[alien.position[x]].classList.add('alien')
     }
   }
-  // move aliens left and right
-  const alienPosition = alien.position
-  const aliens = document.querySelectorAll('.alien')
-  let movesMade = 0
-  setInterval(() => {
-    movesMade++
-    for(let i = 0; i < aliens.length; i++) {
-      if (movesMade === 10) {
-        squareElement[alien.position[i]].classList.remove('alien')
-        alien.position[i] = alien.position[i] + 10
-        squareElement[alien.position[i]].classList.add('alien')
-        alien.position.push(alienPosition)
-        movesMade = 0
-      // } else if (movesMade === 5) {
-      //   squareElement[alien.position[i]].classList.remove('alien')
-      //   alien.position[i] = alien.position[i] + 10
-      //   squareElement[alien.position[i]].classList.add('alien')
-      //   alien.position.push(alienPosition)
-      // } else if (movesMade > 5 && movesMade < 2) {
-      //   squareElement[alien.position[i]].classList.remove('alien')
-      //   alien.position[i] = alien.position[i] - 1
-      //   squareElement[alien.position[i]].classList.add('alien')
-      //   alien.position.push(alienPosition)
-      // } else if(movesMade < 5) {
-      //   squareElement[alien.position[i]].classList.remove('alien')
-      //   alien.position[i] = alien.position[i] + 1
-      //   squareElement[alien.position[i]].classList.add('alien')
-      //   alien.position.push(alienPosition)
-      }
-    }
-  }, 1000)
+  // // move aliens left and right
+  // const alienPosition = alien.position
+  // const aliens = document.querySelectorAll('.alien')
+  // let movesMade = 0
+  // setInterval(() => {
+  //   movesMade++
+  //   for(let i = 0; i < aliens.length; i++) {
+  //     if (movesMade === 10) {
+  //       squareElement[alien.position[i]].classList.remove('alien')
+  //       alien.position[i] = alien.position[i] + 10
+  //       squareElement[alien.position[i]].classList.add('alien')
+  //       alien.position.push(alienPosition)
+  //       movesMade = 0
+  //     } else if (movesMade === 5) {
+  //       squareElement[alien.position[i]].classList.remove('alien')
+  //       alien.position[i] = alien.position[i] + 10
+  //       squareElement[alien.position[i]].classList.add('alien')
+  //       alien.position.push(alienPosition)
+  //     } else if (movesMade > 5 && movesMade < 2) {
+  //       squareElement[alien.position[i]].classList.remove('alien')
+  //       alien.position[i] = alien.position[i] - 1
+  //       squareElement[alien.position[i]].classList.add('alien')
+  //       alien.position.push(alienPosition)
+  //     } else if(movesMade < 5) {
+  //       squareElement[alien.position[i]].classList.remove('alien')
+  //       alien.position[i] = alien.position[i] + 1
+  //       squareElement[alien.position[i]].classList.add('alien')
+  //       alien.position.push(alienPosition)
+  //     }
+  //   }
+  // }, 1000)
 
 
   //fire missile
@@ -157,9 +173,12 @@ window.addEventListener('DOMContentLoaded', () => {
       }
     }
   }
-
+  //change screens
   //start screen
-  
+  $('.start-screen').innerHTML = $('start-screen')
+  $('#starbutton').click(function() {
+    $('start-screen').parent().css('hidden')
+  })
 
   //game-over + total score screen
 

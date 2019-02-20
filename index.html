@@ -17,13 +17,18 @@
       <img src="images/space-invaders-logo.png" alt="logo" width="800" length='800'>
     </div>
     <p>Press START to play</p>
-    <button type="button" name="start-button">Start</button>
+      <button name="button" name="start-button">Start</button>
   </section>
 
   <section class="game">
     <div class="left">
       <h1>Space Invaders</h1>
-      <p><img src="images/enemy4.png" alt="enemy icon" height="80" width="80"> = 10 pts</p>
+      <div class="image-content">
+        <img src="images/enemy4.png" alt="enemy icon" height="80" width="80">
+        <p>=</p>
+        <p>10 pts</p>
+      </div>
+
       <div id="score">Score: 0</div>
     </div>
     <div class="middle">
@@ -35,9 +40,9 @@
 
   <section class="game-over">
     <div class="game-over-box">
-      <p>Game Over!</p>
+      <p><span>Game Over!</span></p>
       <p>your score is !</p>
-      <button type="button" name="play again">play again</button>
+      <button name="button" name="play-again">Play Again</button>
     </div>
     <div class="sign">Made by Buse Uslu</div>
 
