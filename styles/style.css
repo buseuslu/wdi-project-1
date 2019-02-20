@@ -187,3 +187,6 @@ section {
   outline: none;
   padding: 10px 50px;
 }
+button {
+  cursor: pointer;
+}
