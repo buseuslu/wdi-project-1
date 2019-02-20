@@ -135,7 +135,8 @@ window.addEventListener('DOMContentLoaded', () => {
   //start screen
 
 
-  //game-over screen
+  //game-over + total score screen
+
   let gameOver = false
   window.addEventListener('keydown', moveShip)
   window.addEventListener('keydown', fireMissile)

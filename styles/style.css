@@ -119,9 +119,12 @@ button {
 
 .game {
   display: flex;
-  flex-direction: column;
   align-items: center;
   background: black;
+}
+
+.middle {
+  margin: 0 auto;
 }
 
 .game-over {
