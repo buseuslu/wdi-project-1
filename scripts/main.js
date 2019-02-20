@@ -52,7 +52,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // move aliens
+  // move aliens down
   const alien = {
     position: [1 ,2, 3, 4, 5, 6, 7, 8]
   }
@@ -74,6 +74,38 @@ window.addEventListener('DOMContentLoaded', () => {
       squareElement[alien.position[x]].classList.add('alien')
     }
   }
+  // move aliens left and right
+  const alienPosition = alien.position
+  const aliens = document.querySelectorAll('.alien')
+  let movesMade = 0
+  setInterval(() => {
+    movesMade++
+    for(let i = 0; i < aliens.length; i++) {
+      if (movesMade === 10) {
+        squareElement[alien.position[i]].classList.remove('alien')
+        alien.position[i] = alien.position[i] + 10
+        squareElement[alien.position[i]].classList.add('alien')
+        alien.position.push(alienPosition)
+        movesMade = 0
+      // } else if (movesMade === 5) {
+      //   squareElement[alien.position[i]].classList.remove('alien')
+      //   alien.position[i] = alien.position[i] + 10
+      //   squareElement[alien.position[i]].classList.add('alien')
+      //   alien.position.push(alienPosition)
+      // } else if (movesMade > 5 && movesMade < 2) {
+      //   squareElement[alien.position[i]].classList.remove('alien')
+      //   alien.position[i] = alien.position[i] - 1
+      //   squareElement[alien.position[i]].classList.add('alien')
+      //   alien.position.push(alienPosition)
+      // } else if(movesMade < 5) {
+      //   squareElement[alien.position[i]].classList.remove('alien')
+      //   alien.position[i] = alien.position[i] + 1
+      //   squareElement[alien.position[i]].classList.add('alien')
+      //   alien.position.push(alienPosition)
+      }
+    }
+  }, 1000)
+
 
   //fire missile
   function fireMissile(e) {
@@ -126,46 +158,8 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  const alienPosition = alien.position
-  const aliens = document.querySelectorAll('.alien')
-  let movesMade = 0
-  setInterval(() => {
-    movesMade++
-    for(let i = 0; i < aliens.length; i++) {
-      if (movesMade === 2) {
-        squareElement[alien.position[i]].classList.remove('alien')
-        alien.position[i] = alien.position[i] + 10
-        squareElement[alien.position[i]].classList.add('alien')
-        alien.position.push(alienPosition)
-        movesMade = 0
-      } else if (movesMade === 1) {
-        squareElement[alien.position[i]].classList.remove('alien')
-        alien.position[i] = alien.position[i] + 10
-        squareElement[alien.position[i]].classList.add('alien')
-        alien.position.push(alienPosition)
-      } else if (movesMade > 1 && movesMade < 2) {
-        squareElement[alien.position[i]].classList.remove('alien')
-        alien.position[i] = alien.position[i] - 1
-        squareElement[alien.position[i]].classList.add('alien')
-        alien.position.push(alienPosition)
-      } else if(movesMade < 1) {
-        squareElement[alien.position[i]].classList.remove('alien')
-        alien.position[i] = alien.position[i] + 1
-        squareElement[alien.position[i]].classList.add('alien')
-        alien.position.push(alienPosition)
-      }
-    }
-  }, 1000)
-  // //remove alien & missile
-  // function removeAlienMissile(missile) {
-  //   console.log(missile, alien.position)
-  //   if(alien.position.some(pos => pos === missile)) {
-  //     squareElement[missile].classList.remove('alien', 'missile')
-  //   }
-  // }
-
   //start screen
-
+  
 
   //game-over + total score screen
 

@@ -3,7 +3,7 @@
 }
 
 head, body {
-  font-family: 'Bungee Inline', cursive;
+  font-family: 'Bungee Inline', cursive, sans-serif;
 }
 
 .background  {
@@ -40,18 +40,18 @@ div.grid {
   height: 800px;
   display: flex;
   flex-wrap: wrap;
-  background-image: url('../images/background.png')
 }
 
 div.square {
   height: 80px;
   width: 80px;
-  border: solid 1px black;
+  border: solid 1px purple;
 }
 
 div.ship {
-  background-image: url('../images/ship.png');
+  background-image: url('../images/ship2.png');
   background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 div.alien {
@@ -114,7 +114,7 @@ section {
 
 .start-screen button {
   background: black;
-  font-family: 'Bungee Inline', cursive;
+  font-family: 'Bungee Inline', cursive, sans-serif;
   color: yellow;
   border: 5px red solid;
   font-size: 36px;
@@ -127,7 +127,7 @@ section {
   display: flex;
   align-items: flex-start;
   padding: 15px;
-  background: pink;
+  background-image: url('..//images/starfield.png')
 }
 
 .left {
@@ -147,15 +147,19 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+
   background: black;
   color: white;
 }
+
 
 .game-over-box {
   border: 5px solid blue;
   text-transform: uppercase;
   font-size: 36px;
   padding: 50px 100px;
+  margin-bottom: 20px;
 }
 
 .game-over-box button {
