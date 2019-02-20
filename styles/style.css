@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+head, body {
+  font-family: 'Bungee Inline', cursive;
+}
+
 .background  {
   width: 800px;
   height: 800px;
@@ -107,10 +111,11 @@ section {
   margin-bottom: 100px;
 }
 
-button {
+.start-screen button {
   background: black;
+  font-family: 'Bungee Inline', cursive;
   color: yellow;
-  border: 2px red solid;
+  border: 5px red solid;
   font-size: 36px;
   text-transform: uppercase;
   outline: none;
@@ -119,8 +124,18 @@ button {
 
 .game {
   display: flex;
-  align-items: center;
-  background: black;
+  align-items: flex-start;
+  padding: 15px;
+  background: pink;
+}
+
+.left {
+  text-align: center;
+}
+
+.left p {
+  color: white;
+  font-size: 36px;
 }
 
 .middle {
@@ -128,5 +143,27 @@ button {
 }
 
 .game-over {
-  background: pink;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: black;
+  color: white;
+}
+
+.game-over-box {
+  border: 5px solid blue;
+  text-transform: uppercase;
+  font-size: 36px;
+  padding: 50px 100px;
+}
+
+.game-over-box button {
+  background: black;
+  font-family: 'Bungee Inline', cursive;
+  color: white;
+  border: 5px blue solid;
+  font-size: 36px;
+  text-transform: uppercase;
+  outline: none;
+  padding: 10px 50px;
 }

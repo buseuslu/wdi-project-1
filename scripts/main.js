@@ -2,7 +2,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
   const grid = document.querySelector('.grid')
-  let score = 0
+  let score = 0 
   // const ship = document.querySelector('#ship')
 
   // add grid
