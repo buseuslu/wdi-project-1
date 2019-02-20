@@ -2,7 +2,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
   const grid = document.querySelector('.grid')
-  let score = 0 
+  let score = 0
   // const ship = document.querySelector('#ship')
 
   // add grid
@@ -18,6 +18,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const ship = {
     position: 95
   }
+
 
   const squareElement = document.querySelectorAll('.square')
   squareElement[1].classList.add('alien')
@@ -124,6 +125,37 @@ window.addEventListener('DOMContentLoaded', () => {
       }
     }
   }
+
+  const alienPosition = alien.position
+  const aliens = document.querySelectorAll('.alien')
+  let movesMade = 0
+  setInterval(() => {
+    movesMade++
+    for(let i = 0; i < aliens.length; i++) {
+      if (movesMade === 2) {
+        squareElement[alien.position[i]].classList.remove('alien')
+        alien.position[i] = alien.position[i] + 10
+        squareElement[alien.position[i]].classList.add('alien')
+        alien.position.push(alienPosition)
+        movesMade = 0
+      } else if (movesMade === 1) {
+        squareElement[alien.position[i]].classList.remove('alien')
+        alien.position[i] = alien.position[i] + 10
+        squareElement[alien.position[i]].classList.add('alien')
+        alien.position.push(alienPosition)
+      } else if (movesMade > 1 && movesMade < 2) {
+        squareElement[alien.position[i]].classList.remove('alien')
+        alien.position[i] = alien.position[i] - 1
+        squareElement[alien.position[i]].classList.add('alien')
+        alien.position.push(alienPosition)
+      } else if(movesMade < 1) {
+        squareElement[alien.position[i]].classList.remove('alien')
+        alien.position[i] = alien.position[i] + 1
+        squareElement[alien.position[i]].classList.add('alien')
+        alien.position.push(alienPosition)
+      }
+    }
+  }, 1000)
   // //remove alien & missile
   // function removeAlienMissile(missile) {
   //   console.log(missile, alien.position)

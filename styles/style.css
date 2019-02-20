@@ -31,7 +31,8 @@ h1 {
 }
 
 #score {
-  color: red
+  color: red;
+  font-size: 36px;
 }
 
 div.grid {
