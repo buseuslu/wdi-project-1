@@ -64,7 +64,7 @@ window.addEventListener('DOMContentLoaded', () => {
     for(let x = 0; x < aliens.length; x++) {
       if (alien.position[x] > 79) {
         gameOver = true
-        alert('game over')
+        // alert('game over')
         return
       }
 
@@ -124,8 +124,6 @@ window.addEventListener('DOMContentLoaded', () => {
       }
     }
   }
-
-
   // //remove alien & missile
   // function removeAlienMissile(missile) {
   //   console.log(missile, alien.position)
@@ -135,11 +133,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // }
 
   //start screen
-  // function myFunction() {
-  //   let myWindow = window.open('', 'myWindow', 'width=200,height=100')
-  //   myWindow.document.write('<p>This is \'myWindow\'</p>')
-  //   myWindow.opener.document.write('<p>This is the source window!</p>')
-  // }
+
 
   //game-over screen
   let gameOver = false

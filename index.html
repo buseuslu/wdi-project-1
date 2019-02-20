@@ -1,43 +1,35 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="./styles/style.css">
   <script src="./scripts/main.js" charset="utf-8"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <!-- <canvas id="game-layer" width="200" height="200"></canvas> -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-
 
   <title>Space Invaders</title>
-
 </head>
+
 <body>
-  <header>Space Invaders</header>
+  <section class="start-screen">
+    <div class="start-box">Start box</div>
+  </section>
 
-  <div id="Score">Score 0</div>
+  <section class="game">
+    <h1>Space Invaders</h1>
 
-  <div class="background">
-    <div class="grid">
+    <div id="score">Score: 0</div>
 
+    <div class="background">
+      <section>
+        <div class="grid"></div>
+      </section>
     </div>
-    <!-- <div id="background-image">
-      <img  id="background-image" src="images/background.png" alt="background">
-    </div>
-    <div id="ship">
-      <img id="ship-image" src="images/ship.png" alt="ship">
-    </div>
-    <div id="alien">
-      <img id="alien-image" src="images/enemy4.png" alt="enemy">
-    </div>
-    <div id="missile">
-      <img id="missile-image" src="images/missile.png" alt="missile">
-    </div> -->
-  </div>
+  </section>
 
-
-
-  <footer></footer>
+  <section class="game-over">
+    <div class="game-over-box">Game over</div>
+  </section>
 
 </body>
 
