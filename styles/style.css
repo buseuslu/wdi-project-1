@@ -89,9 +89,32 @@ section {
   /* position: absolute; */
 }
 
-.start-screen{
+.start-screen {
   /* z-index: 1; */
-  background: lightgreen;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.start-screen p {
+  color: red;
+  font-size: 36px;
+}
+
+.logo-image {
+  margin-bottom: 100px;
+}
+
+button {
+  background: black;
+  color: yellow;
+  border: 2px red solid;
+  font-size: 36px;
+  text-transform: uppercase;
+  outline: none;
+  padding: 10px 50px;
 }
 
 .game {
