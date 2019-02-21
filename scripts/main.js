@@ -62,7 +62,7 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   let movesMade = 0
-  setInterval(() => {
+  function moveAliens() {
     for(let i = 0; i < alien.position.length; i++) {
       if (gameOver) {
         return
@@ -96,7 +96,7 @@ window.addEventListener('DOMContentLoaded', () => {
     } else {
       movesMade++
     }
-  }, 2000)
+  }
 
   // add audio
   const playAudio = document.getElementById('shoot_sound')
@@ -156,6 +156,7 @@ window.addEventListener('DOMContentLoaded', () => {
         alienMissile.position[x] = alienMissile.position[x] + 10
         squareElement[alienMissile.position[x]].classList.add('alien_missile')
       }
+
     }
   }
 
@@ -179,13 +180,15 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
     // remove ship on missile hit & add lives
-    function removeShip() {
+    function removeShip(removeShipElement) {
+      console.log('removeShip')
+      const alienMissileHit = ship.position[removeShipElement]
       if (alienMissile.position === ship.position) {
-        squareElement[ship.position].classList.remove('ship')
+        squareElement[alienMissileHit].classList.remove('ship', 'alien_missile')
       }
-
     }
     removeShip()
+    // decrease lives & game over once lives = 0
 
     //game-over + total score screen
     if (alien.position.length === 0) {
@@ -209,12 +212,11 @@ window.addEventListener('DOMContentLoaded', () => {
   startButton.addEventListener('click', () => {
     $('.start-screen').hide()
     $('.game').show().css('display', 'flex')
+
+    window.addEventListener('keydown', moveShip)
+    window.addEventListener('keydown', fireMissile)
+    window.setInterval(moveMissile, 200)
+    window.setInterval(alienAttack, 800)
+    window.setInterval(moveAliens, 1000)
   })
-
-  window.addEventListener('keydown', moveShip)
-  window.addEventListener('keydown', fireMissile)
-  // window.setInterval(moveAliens, 5000)
-  window.setInterval(moveMissile, 200)
-  window.setInterval(alienAttack, 500)
-
 })
