@@ -159,8 +159,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-
-
   //remove alien & missile
   function removeAlienMissile(missileElement) {
     const missilePosition = missile.position[missileElement]
@@ -178,6 +176,17 @@ window.addEventListener('DOMContentLoaded', () => {
         console.log(score)
       }
     }
+
+
+    // remove ship on missile hit & add lives
+    function removeShip() {
+      if (alienMissile.position === ship.position) {
+        squareElement[ship.position].classList.remove('ship')
+      }
+
+    }
+    removeShip()
+
     //game-over + total score screen
     if (alien.position.length === 0) {
       $('#game-over-score').text(score)
@@ -206,6 +215,6 @@ window.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('keydown', fireMissile)
   // window.setInterval(moveAliens, 5000)
   window.setInterval(moveMissile, 200)
-  window.setInterval(alienAttack, 1500)
+  window.setInterval(alienAttack, 500)
 
 })

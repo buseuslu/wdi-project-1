@@ -54,8 +54,8 @@ div.ship {
 }
 
 div.alien {
-  background-image: url('../images/enemy4.png');
-  background-size: 100%;
+  background-image: url('../images/enemy4.png') !important;
+  background-size: 100% !important;
 }
 
 div.missile {
@@ -69,7 +69,7 @@ div.alien_missile {
   background-image: url('../images/alien_missile.png');
   background-size: 30%;
   background-repeat: no-repeat;
-  background-position: right 28px bottom 10px;
+  /* background-position: right 28px bottom 10px; */
 }
 
 #ship-image {
