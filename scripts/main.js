@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
 
-
+  let gameOver = false
   const grid = document.querySelector('.grid')
   let score = 0
   // const ship = document.querySelector('#ship')
@@ -63,13 +63,10 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   // function moveAliens() {
-  //   if (gameOver) {
-  //     return
-  //   }
+
   //   const aliens = document.querySelectorAll('.alien')
   //   for(let x = 0; x < aliens.length; x++) {
-  //     if (alien.position[x] > 79) {
-  //       gameOver = true
+
   //       // alert('game over')
   //       return
   //     }
@@ -85,6 +82,15 @@ window.addEventListener('DOMContentLoaded', () => {
   let movesMade = 0
   setInterval(() => {
     for(let i = 0; i < alien.position.length; i++) {
+      if (gameOver) {
+        return
+      }
+      if (alien.position[i] > 79) {
+        gameOver = true
+        $('#game-over-score').text(score)
+        $('.game').hide()
+        $('.game-over').css('display', 'flex')
+      }
       if (movesMade === 3) {
         squareElement[alien.position[i]].classList.remove('alien')
         alien.position[i] = alien.position[i] + 10
@@ -108,13 +114,12 @@ window.addEventListener('DOMContentLoaded', () => {
     } else {
       movesMade++
     }
-  }, 1000)
+  }, 1500)
 
 
   //fire missile
   function fireMissile(e) {
     const missilePosition = ship.position - 10
-    console.log(missilePosition)
     switch(e.keyCode) {
       case 32:
         squareElement[missilePosition].classList.add('missile')
@@ -157,23 +162,30 @@ window.addEventListener('DOMContentLoaded', () => {
         squareElement[missilePosition].classList.remove('alien', 'missile')
 
         score = score + 10
-        $('#Score').text('Score: ' + score)
+        $('#score').text('Score: ' + score)
+        console.log(score)
       }
     }
+
+    if (alien.position.length === 0) {
+      $('#game-over-score').text(score)
+      $('.game').hide()
+      $('.game-over').show().css('display', 'flex')
+    }
   }
-  //change screens
-  //start screen
-  // $('.start-screen').innerHTML = $('start-screen')
-  // $('#starbutton').click(function() {
-  //   $('start-screen').parent().css('hidden')
-  // })
+
+  //reload button
+  const playAgainButton = document.querySelector('.game-over button')
+  playAgainButton.addEventListener('click', () => {
+    location.reload()
+  })
 
   //game-over + total score screen
 
-  let gameOver = false
+
   window.addEventListener('keydown', moveShip)
   window.addEventListener('keydown', fireMissile)
   // window.setInterval(moveAliens, 5000)
-  window.setInterval(moveMissile, 300)
+  window.setInterval(moveMissile, 200)
 
 })

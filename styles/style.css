@@ -35,6 +35,8 @@ h1 {
   font-size: 36px;
 }
 
+
+
 div.grid {
   width: 800px;
   height: 800px;
@@ -45,7 +47,7 @@ div.grid {
 div.square {
   height: 80px;
   width: 80px;
-  border: solid 1px purple;
+
 }
 
 div.ship {
@@ -166,6 +168,7 @@ section {
   text-align: center;
   background: black;
   color: white;
+  display: none;
 }
 
 
@@ -189,4 +192,8 @@ section {
 }
 button {
   cursor: pointer;
+}
+
+#game-over-score {
+  color: red;
 }
