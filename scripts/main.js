@@ -62,23 +62,6 @@ window.addEventListener('DOMContentLoaded', () => {
     position: [1, 3, 5, 7, 12, 14, 16, 18, 21, 23, 25, 27]
   }
 
-  // function moveAliens() {
-
-  //   const aliens = document.querySelectorAll('.alien')
-  //   for(let x = 0; x < aliens.length; x++) {
-
-  //       // alert('game over')
-  //       return
-  //     }
-  //
-  //     squareElement[alien.position[x]].classList.remove('alien')
-  //     alien.position[x] = alien.position[x] + 10
-  //     squareElement[alien.position[x]].classList.add('alien')
-  //   }
-  // }
-  // move aliens left and right
-  // const alienPosition = alien.position
-  // const aliens = document.querySelectorAll('.alien')
   let movesMade = 0
   setInterval(() => {
     for(let i = 0; i < alien.position.length; i++) {
@@ -166,7 +149,7 @@ window.addEventListener('DOMContentLoaded', () => {
         console.log(score)
       }
     }
-
+    //game-over + total score screen
     if (alien.position.length === 0) {
       $('#game-over-score').text(score)
       $('.game').hide()
@@ -178,9 +161,17 @@ window.addEventListener('DOMContentLoaded', () => {
   const playAgainButton = document.querySelector('.game-over button')
   playAgainButton.addEventListener('click', () => {
     location.reload()
-  })
+    $('.game-over').hide()
+    $('.start-screen').hide()
+    $('.game').show().css('display', 'flex')
 
-  //game-over + total score screen
+  })
+  //start screen
+  const startButton = document.querySelector('.start-screen button')
+  startButton.addEventListener('click', () => {
+    $('.start-screen').hide()
+    $('.game').show().css('display', 'flex')
+  })
 
 
   window.addEventListener('keydown', moveShip)

@@ -35,8 +35,6 @@ h1 {
   font-size: 36px;
 }
 
-
-
 div.grid {
   width: 800px;
   height: 800px;
@@ -93,11 +91,9 @@ div.missile {
 section {
   height: 100vh;
   width: 100vw;
-  /* position: absolute; */
 }
 
 .start-screen {
-  /* z-index: 1; */
   background: black;
   display: flex;
   justify-content: center;
@@ -130,7 +126,8 @@ section {
   display: flex;
   align-items: flex-start;
   padding: 15px;
-  background-image: url('..//images/starfield.png')
+  background-image: url('..//images/starfield.png');
+  display: none;
 }
 
 .image-content {
