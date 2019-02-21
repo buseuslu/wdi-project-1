@@ -19,7 +19,6 @@ window.addEventListener('DOMContentLoaded', () => {
     position: 95
   }
 
-
   const squareElement = document.querySelectorAll('.square')
   squareElement[1].classList.add('alien')
   squareElement[3].classList.add('alien')
@@ -97,8 +96,10 @@ window.addEventListener('DOMContentLoaded', () => {
     } else {
       movesMade++
     }
-  }, 1500)
+  }, 2000)
 
+  // add audio
+  const playAudio = document.getElementById('shoot_sound')
 
   //fire missile
   function fireMissile(e) {
@@ -107,6 +108,7 @@ window.addEventListener('DOMContentLoaded', () => {
       case 32:
         squareElement[missilePosition].classList.add('missile')
         missile.position.push(missilePosition)
+        playAudio.play()
         break
     }
   }
@@ -131,6 +133,33 @@ window.addEventListener('DOMContentLoaded', () => {
       removeAlienMissile(x)
     }
   }
+
+  // alien missile attack
+  const alienMissile = {
+    position: []
+  }
+
+  function alienAttack() {
+    const alienPosition = alien.position
+    const attackingAlienPosition = Math.floor(Math.random()*alienPosition.length)
+    alienMissile.position.push(alien.position[attackingAlienPosition])
+    alienAttackMovement()
+  }
+
+  //move alien attack
+  function alienAttackMovement() {
+    for (let x = 0; x <alienMissile.position.length; x++) {
+      if (alienMissile[x] < 0) {
+        alienMissile.position = alienMissile.position.filter(alienMissile => alienMissile > 99)
+      } else if (squareElement[alienMissile.position[x]] !== undefined){
+        squareElement[alienMissile.position[x]].classList.remove('alien_missile')
+        alienMissile.position[x] = alienMissile.position[x] + 10
+        squareElement[alienMissile.position[x]].classList.add('alien_missile')
+      }
+    }
+  }
+
+
 
   //remove alien & missile
   function removeAlienMissile(missileElement) {
@@ -164,8 +193,8 @@ window.addEventListener('DOMContentLoaded', () => {
     $('.game-over').hide()
     $('.start-screen').hide()
     $('.game').show().css('display', 'flex')
-
   })
+
   //start screen
   const startButton = document.querySelector('.start-screen button')
   startButton.addEventListener('click', () => {
@@ -173,10 +202,10 @@ window.addEventListener('DOMContentLoaded', () => {
     $('.game').show().css('display', 'flex')
   })
 
-
   window.addEventListener('keydown', moveShip)
   window.addEventListener('keydown', fireMissile)
   // window.setInterval(moveAliens, 5000)
   window.setInterval(moveMissile, 200)
+  window.setInterval(alienAttack, 1500)
 
 })
