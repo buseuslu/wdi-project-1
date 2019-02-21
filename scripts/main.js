@@ -39,19 +39,19 @@ window.addEventListener('DOMContentLoaded', () => {
   function moveShip(e) {
     switch(e.keyCode) {
       case 37:
-      squareElement.forEach((square => square.classList.remove('ship')))
-      if (ship.position > 90) {
-        ship.position--
-      }
-      squareElement[ship.position].classList.add('ship')
-      break
+        squareElement.forEach((square => square.classList.remove('ship')))
+        if (ship.position > 90) {
+          ship.position--
+        }
+        squareElement[ship.position].classList.add('ship')
+        break
       case 39:
-      squareElement.forEach((square => square.classList.remove('ship')))
-      if (ship.position < 99) {
-        ship.position++
-      }
-      squareElement[ship.position].classList.add('ship')
-      break
+        squareElement.forEach((square => square.classList.remove('ship')))
+        if (ship.position < 99) {
+          ship.position++
+        }
+        squareElement[ship.position].classList.add('ship')
+        break
     }
   }
 
@@ -105,10 +105,10 @@ window.addEventListener('DOMContentLoaded', () => {
     const missilePosition = ship.position - 10
     switch(e.keyCode) {
       case 32:
-      squareElement[missilePosition].classList.add('missile')
-      missile.position.push(missilePosition)
-      playAudio.play()
-      break
+        squareElement[missilePosition].classList.add('missile')
+        missile.position.push(missilePosition)
+        playAudio.play()
+        break
     }
   }
 
