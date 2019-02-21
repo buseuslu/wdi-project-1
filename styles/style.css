@@ -32,6 +32,7 @@ h1 {
 #score {
   color: red;
   font-size: 36px;
+  margin-top: 36px;
 }
 
 div.grid {
@@ -48,8 +49,8 @@ div.square {
 }
 
 div.ship {
-  background-image: url('../images/ship2.png');
-  background-size: 100%;
+  background-image: url('../images/ship2.png') !important;
+  background-size: 100% !important;
   background-repeat: no-repeat;
 }
 
@@ -60,9 +61,9 @@ div.alien {
 
 div.missile {
   background-image: url('../images/missile.png');
-     background-size: 30%;
-     background-repeat: no-repeat;
-     background-position: right 28px bottom 10px;
+  background-size: 30%;
+  background-repeat: no-repeat;
+  background-position: right 28px bottom 10px;
 }
 
 div.alien_missile {
@@ -130,7 +131,7 @@ section {
 
 .game {
   display: flex;
-  align-items: flex-start;
+  /* align-items: flex-start; */
   padding: 15px;
   background-image: url('..//images/starfield.png');
   display: none;
@@ -199,4 +200,10 @@ button {
 
 #game-over-score {
   color: red;
+}
+
+#lives {
+  font-family: 'Bungee Inline', cursive;
+  color: white;
+  font-size: 36px;
 }

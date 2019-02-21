@@ -3,6 +3,7 @@ window.addEventListener('DOMContentLoaded', () => {
   let gameOver = false
   const grid = document.querySelector('.grid')
   let score = 0
+  let lives = 3
   // const ship = document.querySelector('#ship')
 
   // add grid
@@ -33,26 +34,24 @@ window.addEventListener('DOMContentLoaded', () => {
   squareElement[25].classList.add('alien')
   squareElement[27].classList.add('alien')
 
-
   squareElement[ship.position].classList.add('ship')
-
 
   function moveShip(e) {
     switch(e.keyCode) {
       case 37:
-        squareElement.forEach((square => square.classList.remove('ship')))
-        if (ship.position > 90) {
-          ship.position--
-        }
-        squareElement[ship.position].classList.add('ship')
-        break
+      squareElement.forEach((square => square.classList.remove('ship')))
+      if (ship.position > 90) {
+        ship.position--
+      }
+      squareElement[ship.position].classList.add('ship')
+      break
       case 39:
-        squareElement.forEach((square => square.classList.remove('ship')))
-        if (ship.position < 99) {
-          ship.position++
-        }
-        squareElement[ship.position].classList.add('ship')
-        break
+      squareElement.forEach((square => square.classList.remove('ship')))
+      if (ship.position < 99) {
+        ship.position++
+      }
+      squareElement[ship.position].classList.add('ship')
+      break
     }
   }
 
@@ -106,10 +105,10 @@ window.addEventListener('DOMContentLoaded', () => {
     const missilePosition = ship.position - 10
     switch(e.keyCode) {
       case 32:
-        squareElement[missilePosition].classList.add('missile')
-        missile.position.push(missilePosition)
-        playAudio.play()
-        break
+      squareElement[missilePosition].classList.add('missile')
+      missile.position.push(missilePosition)
+      playAudio.play()
+      break
     }
   }
 
@@ -156,6 +155,7 @@ window.addEventListener('DOMContentLoaded', () => {
         alienMissile.position[x] = alienMissile.position[x] + 10
         squareElement[alienMissile.position[x]].classList.add('alien_missile')
       }
+      livesLost()
 
     }
   }
@@ -178,23 +178,33 @@ window.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-
-    // remove ship on missile hit & add lives
-    function removeShip(removeShipElement) {
-      console.log('removeShip')
-      const alienMissileHit = ship.position[removeShipElement]
-      if (alienMissile.position === ship.position) {
-        squareElement[alienMissileHit].classList.remove('ship', 'alien_missile')
-      }
-    }
-    removeShip()
-    // decrease lives & game over once lives = 0
-
     //game-over + total score screen
     if (alien.position.length === 0) {
       $('#game-over-score').text(score)
       $('.game').hide()
       $('.game-over').show().css('display', 'flex')
+    }
+  }
+  // remove ship on missile hit & add lives
+  // decrease lives & game over once lives = 0
+  function livesLost() {
+    console.log(lives)
+    for(let x = 0; x < alienMissile.position.length; x++) {
+      if (alienMissile.position[x] === ship.position) {
+        lives = lives - 1
+        $('#lives').text('Lives: ' + lives)
+
+        alienMissile.position.splice(x, 1)
+
+        if (lives === 0) {
+          gameOver = true
+          $('#game-over-score').text(score)
+          $('.game').hide()
+          $('.game-over').css('display', 'flex')
+        }
+
+        return
+      }
     }
   }
 
@@ -216,7 +226,7 @@ window.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('keydown', moveShip)
     window.addEventListener('keydown', fireMissile)
     window.setInterval(moveMissile, 200)
-    window.setInterval(alienAttack, 800)
+    window.setInterval(alienAttack, 600)
     window.setInterval(moveAliens, 1000)
   })
 })
