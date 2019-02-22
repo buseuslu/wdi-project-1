@@ -160,7 +160,7 @@ window.addEventListener('DOMContentLoaded', () => {
         squareElement[alienMissile.position[x]].classList.add('alien_missile')
       }
       livesLost()
-      clearInterval(alienAttack)
+
     }
   }
 
@@ -189,8 +189,8 @@ window.addEventListener('DOMContentLoaded', () => {
       $('.game').hide()
       $('.game-over').hide()
       $('.you-won').show().css('display', 'flex')
-
     }
+    return
   }
 
   // lost lives & game over once lives = 0
