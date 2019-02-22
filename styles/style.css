@@ -164,6 +164,11 @@ section {
   font-size: 100px;
   color: yellow;
 }
+.you-won span {
+  font-size: 100px;
+  color: yellow;
+}
+
 .game-over {
   display: flex;
   align-items: center;
@@ -175,6 +180,35 @@ section {
   display: none;
 }
 
+.you-won {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  background: black;
+  color: white;
+  display: none;
+}
+
+.you-won-box {
+  border: 5px solid blue;
+  text-transform: uppercase;
+  font-size: 36px;
+  padding: 50px 100px;
+  margin-bottom: 20px;
+}
+
+.you-won button {
+  background: black;
+  font-family: 'Bungee Inline', cursive;
+  color: white;
+  border: 5px blue solid;
+  font-size: 36px;
+  text-transform: uppercase;
+  outline: none;
+  padding: 10px 50px;
+}
 
 .game-over-box {
   border: 5px solid blue;
@@ -194,6 +228,7 @@ section {
   outline: none;
   padding: 10px 50px;
 }
+
 button {
   cursor: pointer;
 }
@@ -202,8 +237,17 @@ button {
   color: red;
 }
 
+#you-won-score {
+  color: red;
+}
+
 #lives {
   font-family: 'Bungee Inline', cursive;
   color: white;
   font-size: 36px;
+}
+
+#you-won-text {
+  color: red;
+  font-size: 80px;
 }

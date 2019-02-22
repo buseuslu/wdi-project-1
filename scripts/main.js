@@ -104,8 +104,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-
-
   //fire missile
   function fireMissile(e) {
     const missilePosition = ship.position - 10
@@ -187,13 +185,15 @@ window.addEventListener('DOMContentLoaded', () => {
 
     //game-over + total score screen
     if (alien.position.length === 0) {
-      $('#game-over-score').text(score)
+      $('#you-won-score').text(score)
       $('.game').hide()
-      $('.game-over').show().css('display', 'flex')
+      $('.game-over').hide()
+      $('.you-won').show().css('display', 'flex')
+
     }
   }
-  // remove ship on missile hit & add lives
-  // decrease lives & game over once lives = 0
+
+  // lost lives & game over once lives = 0
   function livesLost() {
     console.log(lives)
     for(let x = 0; x < alienMissile.position.length; x++) {
@@ -221,6 +221,14 @@ window.addEventListener('DOMContentLoaded', () => {
   //reload button
   const playAgainButton = document.querySelector('.game-over button')
   playAgainButton.addEventListener('click', () => {
+    location.reload()
+    $('.game-over').hide()
+    $('.start-screen').hide()
+    $('.game').show().css('display', 'flex')
+  })
+
+  const youWonButton = document.querySelector('.you-won button')
+  youWonButton.addEventListener('click', () => {
     location.reload()
     $('.game-over').hide()
     $('.start-screen').hide()
