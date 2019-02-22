@@ -8,6 +8,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // add audio
   const playShoot = document.getElementById('shoot_sound')
   const playInvaders = document.getElementById('invaderkilled')
+  const playExplosion = document.getElementById('explosion')
 
   // add grid
   for(let x  = 0; x < 100; x++) {
@@ -193,6 +194,7 @@ window.addEventListener('DOMContentLoaded', () => {
     console.log(lives)
     for(let x = 0; x < alienMissile.position.length; x++) {
       if (alienMissile.position[x] === ship.position) {
+        playExplosion.play()
         lives = lives - 1
         $('#lives').text('Lives: ' + lives)
 
