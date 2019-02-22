@@ -74,6 +74,9 @@ window.addEventListener('DOMContentLoaded', () => {
         return
       }
       if (alien.position[i] > 79) {
+        clearInterval(alienTimer)
+        clearInterval(missileTimer)
+        clearInterval(alienAttackTimer)
         gameOver = true
         $('#game-over-score').text(score)
         $('.game').hide()
@@ -125,13 +128,11 @@ window.addEventListener('DOMContentLoaded', () => {
     for(let x = 0; x < missile.position.length; x++) {
       if (missile.position[x] < 0) {
         missile.position = missile.position.filter(missile => missile > 0)
-        // squareElement[missile.position[x]].classList.remove('missile')
       } else {
         squareElement[missile.position[x]].classList.remove('missile')
         missile.position[x] = missile.position[x] - 10
         squareElement[missile.position[x]].classList.add('missile')
       }
-
       // Check here after we have moved the missiles
       removeAlienMissile(x)
     }
@@ -160,7 +161,6 @@ window.addEventListener('DOMContentLoaded', () => {
         squareElement[alienMissile.position[x]].classList.add('alien_missile')
       }
       livesLost()
-
     }
   }
 
@@ -180,11 +180,13 @@ window.addEventListener('DOMContentLoaded', () => {
         $('#score').text('Score: ' + score)
         console.log(score)
       }
-
     }
 
     //game-over + total score screen
     if (alien.position.length === 0) {
+      clearInterval(alienTimer)
+      clearInterval(missileTimer)
+      clearInterval(alienAttackTimer)
       $('#you-won-score').text(score)
       $('.game').hide()
       $('.game-over').hide()
