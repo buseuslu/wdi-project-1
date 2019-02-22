@@ -4,6 +4,9 @@ window.addEventListener('DOMContentLoaded', () => {
   const grid = document.querySelector('.grid')
   let score = 0
   let lives = 3
+  let missileTimer = null
+  let alienTimer = null
+  let alienAttackTimer = null
 
   // add audio
   const playShoot = document.getElementById('shoot_sound')
@@ -159,6 +162,7 @@ window.addEventListener('DOMContentLoaded', () => {
         squareElement[alienMissile.position[x]].classList.add('alien_missile')
       }
       livesLost()
+      clearInterval(alienAttack)
     }
   }
 
@@ -201,6 +205,9 @@ window.addEventListener('DOMContentLoaded', () => {
         alienMissile.position.splice(x, 1)
 
         if (lives === 0) {
+          clearInterval(alienTimer)
+          clearInterval(missileTimer)
+          clearInterval(alienAttackTimer)
           gameOver = true
           $('#game-over-score').text(score)
           $('.game').hide()
@@ -228,8 +235,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('keydown', moveShip)
     window.addEventListener('keydown', fireMissile)
-    window.setInterval(moveMissile, 200)
-    window.setInterval(alienAttack, 600)
-    window.setInterval(moveAliens, 1000)
+    missileTimer = setInterval(moveMissile, 200)
+    alienAttackTimer = setInterval(alienAttack, 600)
+    alienTimer = setInterval(moveAliens, 1000)
   })
 })
