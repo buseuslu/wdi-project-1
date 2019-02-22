@@ -4,7 +4,10 @@ window.addEventListener('DOMContentLoaded', () => {
   const grid = document.querySelector('.grid')
   let score = 0
   let lives = 3
-  // const ship = document.querySelector('#ship')
+
+  // add audio
+  const playShoot = document.getElementById('shoot_sound')
+  const playInvaders = document.getElementById('invaderkilled')
 
   // add grid
   for(let x  = 0; x < 100; x++) {
@@ -97,8 +100,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // add audio
-  const playAudio = document.getElementById('shoot_sound')
+
 
   //fire missile
   function fireMissile(e) {
@@ -107,7 +109,7 @@ window.addEventListener('DOMContentLoaded', () => {
       case 32:
         squareElement[missilePosition].classList.add('missile')
         missile.position.push(missilePosition)
-        playAudio.play()
+        playShoot.play()
         break
     }
   }
@@ -156,7 +158,6 @@ window.addEventListener('DOMContentLoaded', () => {
         squareElement[alienMissile.position[x]].classList.add('alien_missile')
       }
       livesLost()
-
     }
   }
 
@@ -171,11 +172,12 @@ window.addEventListener('DOMContentLoaded', () => {
         missile.position.splice(missileElement, 1)
         // Remove it from the page
         squareElement[missilePosition].classList.remove('alien', 'missile')
-
+        playInvaders.play()
         score = score + 10
         $('#score').text('Score: ' + score)
         console.log(score)
       }
+
     }
 
     //game-over + total score screen
@@ -202,7 +204,6 @@ window.addEventListener('DOMContentLoaded', () => {
           $('.game').hide()
           $('.game-over').css('display', 'flex')
         }
-
         return
       }
     }
