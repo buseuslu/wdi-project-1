@@ -165,8 +165,13 @@ section {
   color: yellow;
 }
 .you-won span {
-  font-size: 100px;
+  font-size: 80px;
   color: yellow;
+}
+
+.you-won p {
+  margin: auto;
+  margin: 20px;
 }
 
 .game-over {
@@ -183,8 +188,8 @@ section {
 .you-won {
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
   text-align: center;
   background: black;
   color: white;
@@ -204,7 +209,7 @@ section {
   font-family: 'Bungee Inline', cursive;
   color: white;
   border: 5px blue solid;
-  font-size: 36px;
+  font-size: 28px;
   text-transform: uppercase;
   outline: none;
   padding: 10px 50px;
@@ -251,3 +256,7 @@ button {
   color: red;
   font-size: 80px;
 }
+
+/* .sign-won {
+margin-top: 20px
+} */

@@ -246,7 +246,7 @@ window.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('keydown', moveShip)
     window.addEventListener('keydown', fireMissile)
     missileTimer = setInterval(moveMissile, 200)
-    alienAttackTimer = setInterval(alienAttack, 600)
+    alienAttackTimer = setInterval(alienAttack, 2000)
     alienTimer = setInterval(moveAliens, 1000)
   })
 })
