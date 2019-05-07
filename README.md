@@ -1,46 +1,98 @@
-# wdi-project-1
+# WDI-Project-1 -Space Invaders Game
 
 ![ga_cog_large_red_rgb](https://cloud.githubusercontent.com/assets/40461/8183776/469f976e-1432-11e5-8199-6ac91363302b.png)
 
-# Space Invaders
-
-> **Difficulty level: 2**
-
-![space invaders](https://media.git.generalassemb.ly/user/15120/files/daf26380-fec9-11e8-9276-dd4cee934d49)
-
+# Project Overview
 Space Invaders is a classic arcade game from the 80s. The player aims to shoot an invading alien armada, before it reaches the planet's surface using a mounted gun turret.
 
 The player can only move left or right. The aliens also move from left to right, and also down each time the reach the side of the screen. The aliens also periodically drop bombs towards the player.
 
 Once the player has destroyed a wave of aliens, the game starts again. The aim is to achieve the highest score possible before either being destroyed by the aliens, or allowing them to reach the planet's surface.
 
-## Resources
+# Brief
+I developed a classic space invaders arcade game in one week. This was a solo project which I worked on alone. The player uses the space and arrow keys to play the game.
 
-* [Space Invaders 1978 - Arcade Gameplay - Youtube](https://www.youtube.com/watch?v=MU4psw3ccUI)
-* [Space Invaders - Wikipedia](https://en.wikipedia.org/wiki/Space_Invaders)
+# Timeframe
+7 days
 
-## Requirements
+## Technologies used
+* HTML5
+* CSS
+* Javascript
 
-* The player should be able to clear at least one wave of aliens
-* The player's score should be displayed at the end of the game
 
-## Suggested enhancements
+## Screenshots
+#### Main page
+The player needs to click start button to play the game.
+![](screenshots/screenshot-main.png)
 
-* Responsive design
-* Each wave gets more difficult
-* Persistent leaderboard using `localStorage`
+#### Game
+The player uses the arrow keys to move the ship left and right and the space key to shoot the aliens. Aliens move right, left and down gradually. The player gets 10 points by eliminating an alien. The player has 3 lives. Lives are lost if hit an alien missile.
+![](screenshots/screenshot-game.png)
+
+### Game-Over
+If player loses 3 lives or the aliens reach to the ship the game ends.
+
+![](screenshots/screenshot-gameover.png)
+
+### Game-Over-Win
+If the player manages to eliminate all the aliens, the player wins the game.
+
+![](screenshots/screenshot-gameover-win.png)
+
+## Process
+I created the game by using a grid layout. I created the grid system in Javascript. This made it easier to move the ship, aliens and the missiles in the game. Once I created the grid system, I places the ship and the aliens on it.
+
+Then, I made ship to shoot the aliens. I finally created another function to make aliens drop missiles randomly. I also added 3 lives for the player which are lost if hit by an alien missile.
+
+I finally added audio.
 
 ## Challenges
+It was challenging to make aliens move left and right as well as down. After completing the project, I realised that the game was still running in the background. I fixed that by adding time intervals.
 
-The main challenge here is the movement of large groups of aliens in formation, and the animation of the bombs and player's shots. There are several approaches here, with collision detection being the more challenging.
-
-## Tips
-
-* Make sure you spend plenty of time planning _before_ you start coding
-* Make sure you understand all of the rules of the game
-* Make a checklist of all the features you want to add to the game
-* Keep It Stupid Simple
-* Refactor your code as you go
-* Make sure you have a good idea of what your MVP is and only add extra features once you have achieved it
-* Do just enough styling to get started, then once you have your MVP polish up the styling before moving on
-
+## Wins
+I manage to move the aliens by using this code:
+```javascript
+let movesMade = 0
+function moveAliens() {
+  for(let i = 0; i < alien.position.length; i++) {
+    if (gameOver) {
+      return
+    }
+    if (alien.position[i] > 79) {
+      clearInterval(alienTimer)
+      clearInterval(missileTimer)
+      clearInterval(alienAttackTimer)
+      gameOver = true
+      $('#game-over-score').text(score)
+      $('.game').hide()
+      $('.game-over').css('display', 'flex')
+    }
+    if (movesMade === 3) {
+      squareElement[alien.position[i]].classList.remove('alien')
+      alien.position[i] = alien.position[i] + 10
+      squareElement[alien.position[i]].classList.add('alien')
+    } else if (movesMade === 1) {
+      squareElement[alien.position[i]].classList.remove('alien')
+      alien.position[i] = alien.position[i] + 10
+      squareElement[alien.position[i]].classList.add('alien')
+    } else if (movesMade > 1 && movesMade < 4) {
+      squareElement[alien.position[i]].classList.remove('alien')
+      alien.position[i] = alien.position[i] - 1
+      squareElement[alien.position[i]].classList.add('alien')
+    } else if(movesMade < 1) {
+      squareElement[alien.position[i]].classList.remove('alien')
+      alien.position[i] = alien.position[i] + 1
+      squareElement[alien.position[i]].classList.add('alien')
+    }
+  }
+  if (movesMade === 3) {
+    movesMade = 0
+  } else {
+    movesMade++
+  }
+}
+```
+## Future Features
+* Responsive Design
+* Each wave gets more difficult
