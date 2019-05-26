@@ -45,7 +45,6 @@ div.grid {
 div.square {
   height: 80px;
   width: 80px;
-
 }
 
 div.ship {
@@ -98,6 +97,7 @@ div.alien_missile {
 section {
   height: 100vh;
   width: 100vw;
+  overflow: hidden;
 }
 
 .start-screen {
@@ -106,7 +106,6 @@ section {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
 }
 
 .start-screen p {

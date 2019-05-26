@@ -1,4 +1,5 @@
-# WDI-Project-1 -Space Invaders Game
+# Space Invaders Game
+## WDI Project 1
 
 ![ga_cog_large_red_rgb](https://cloud.githubusercontent.com/assets/40461/8183776/469f976e-1432-11e5-8199-6ac91363302b.png)
 
@@ -9,8 +10,11 @@ The player can only move left or right. The aliens also move from left to right,
 
 Once the player has destroyed a wave of aliens, the game starts again. The aim is to achieve the highest score possible before either being destroyed by the aliens, or allowing them to reach the planet's surface.
 
-# Brief
+# Overview
 I developed a classic space invaders arcade game in one week. This was a solo project which I worked on alone. The player uses the space and arrow keys to play the game.
+
+# Website
+https://buseuslu.github.io/wdi-project-1/
 
 # Timeframe
 7 days
@@ -20,14 +24,13 @@ I developed a classic space invaders arcade game in one week. This was a solo pr
 * CSS
 * Javascript
 
-
 ## Screenshots
 #### Main page
 The player needs to click start button to play the game.
 ![](screenshots/screenshot-main.png)
 
 #### Game
-The player uses the arrow keys to move the ship left and right and the space key to shoot the aliens. Aliens move right, left and down gradually. The player gets 10 points by eliminating an alien. The player has 3 lives. Lives are lost if hit an alien missile.
+The player uses the arrow keys to move the ship left and right and the space key to shoot the aliens. Aliens move right, left and down gradually. The player gets 10 points by eliminating an alien. The player has 3 lives. Lives are lost if hit by an alien missile.
 ![](screenshots/screenshot-game.png)
 
 ### Game-Over
@@ -41,14 +44,14 @@ If the player manages to eliminate all the aliens, the player wins the game.
 ![](screenshots/screenshot-gameover-win.png)
 
 ## Process
-I created the game by using a grid layout. I created the grid system in Javascript. This made it easier to move the ship, aliens and the missiles in the game. Once I created the grid system, I places the ship and the aliens on it.
+I created the game by using a grid layout. I created the grid system in Javascript. This made it easier to move the ship, aliens and the missiles in the game. Once I created the grid system, I placed the ship and the aliens on it.
 
 Then, I made ship to shoot the aliens. I finally created another function to make aliens drop missiles randomly. I also added 3 lives for the player which are lost if hit by an alien missile.
 
 I finally added audio.
 
 ## Challenges
-It was challenging to make aliens move left and right as well as down. After completing the project, I realised that the game was still running in the background. I fixed that by adding time intervals.
+It was challenging to make aliens move left and right as well as down. After 'game-over' screen, I realised that the game was still running in the background. I fixed that by adding time intervals.
 
 ## Wins
 I manage to move the aliens by using this code:
