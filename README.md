@@ -54,7 +54,8 @@ I finally added audio.
 It was challenging to make aliens move left and right as well as down. After 'game-over' screen, I realised that the game was still running in the background. I fixed that by adding time intervals.
 
 ## Wins
-I manage to move the aliens by using this code:
+* Creating a fully functional game with vanilla Javascript.
+* I manage to move the aliens by using this code:
 ```javascript
 let movesMade = 0
 function moveAliens() {
