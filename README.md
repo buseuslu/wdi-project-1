@@ -2,21 +2,25 @@
 ## WDI Project 1
 
 ![ga_cog_large_red_rgb](https://cloud.githubusercontent.com/assets/40461/8183776/469f976e-1432-11e5-8199-6ac91363302b.png)
+Project-1
 
-# Project Overview
+## Goal
+To create a fully functional game by using HTML5, CSS and vanilla JavaScript.
+
+## Project Overview
 Space Invaders is a classic arcade game from the 80s. The player aims to shoot an invading alien armada, before it reaches the planet's surface using a mounted gun turret.
 
 The player can only move left or right. The aliens also move from left to right, and also down each time the reach the side of the screen. The aliens also periodically drop bombs towards the player.
 
 Once the player has destroyed a wave of aliens, the game starts again. The aim is to achieve the highest score possible before either being destroyed by the aliens, or allowing them to reach the planet's surface.
 
-# Overview
+## Overview
 I developed a classic space invaders arcade game in one week. This was a solo project which I worked on alone. The player uses the space and arrow keys to play the game.
 
-# Website
+## Website
 https://buseuslu.github.io/wdi-project-1/
 
-# Timeframe
+## Timeframe
 7 days
 
 ## Technologies used
